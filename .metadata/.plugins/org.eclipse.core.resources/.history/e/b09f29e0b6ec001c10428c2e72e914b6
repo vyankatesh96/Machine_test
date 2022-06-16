@@ -1,0 +1,27 @@
+package com.machinetest.Service;
+
+import org.springframework.stereotype.Service;
+
+import com.machinetest.Entities.Product;
+import com.machinetest.dao.ProductRepository;
+
+@Service
+public class ProductService {
+	
+	private ProductRepository productRepo;
+	
+	public Product addproduct(Product p) {
+		
+		return this.productRepo.save(p);
+	}
+	
+	public Product updateproduct(Product p) {
+		
+		return this.productRepo.save(p);
+	}
+	
+	public Product deleteById(int id) {
+		return this.productRepo.deleteById(id);
+	}
+
+}

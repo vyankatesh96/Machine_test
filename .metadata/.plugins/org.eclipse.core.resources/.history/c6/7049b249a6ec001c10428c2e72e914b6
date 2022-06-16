@@ -1,0 +1,5 @@
+package com.machinetest.Service;
+
+public class CategoryService {
+
+}

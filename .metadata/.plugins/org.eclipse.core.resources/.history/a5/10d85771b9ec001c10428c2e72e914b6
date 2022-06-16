@@ -1,0 +1,52 @@
+package com.machinetest.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import com.machinetest.Entities.Product;
+import com.machinetest.dao.ProductRepository;
+
+@Service
+public class ProductService {
+	
+	List<Product> list; 
+	
+	private ProductRepository productRepo;
+	
+	public Product addproduct(Product p) {
+		
+		return productRepo.save(p);
+	}
+	
+	public Product updateproduct(Product p, int id) {
+		
+		list.stream().map(p1->{
+			if(p.getPid()==id) {
+				return true;
+			}
+			else {
+				return false;
+			}
+			
+		}).collect(Collectors.toList());
+		return p;
+	}
+	
+	public void deleteById(int id) {
+		list = list.stream().filter(e-> e.getPid()==id).findFirst().get();
+		
+	}
+	
+	public List<Product> getAllProducts(){
+		
+		return productRepo.findAll();
+		
+	}
+
+	public Product getById(int id) {
+		
+		return productRepo.findById(id).get();
+	}
+}

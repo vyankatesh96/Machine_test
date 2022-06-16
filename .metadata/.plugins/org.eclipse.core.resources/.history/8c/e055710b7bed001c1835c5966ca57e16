@@ -1,0 +1,45 @@
+package com.machinetest.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.machinetest.Entities.Category;
+import com.machinetest.Service.CategoryService;
+
+@RestController
+public class CategoryController {
+
+	@Autowired
+	private CategoryService categoryService;
+	
+	@PostMapping("/category")
+	public Category addcategory(Category c) {
+		
+		return categoryService.addcategory(c);
+	}
+	
+	@PutMapping("/category/{id}")
+	public void updateCategory(Category c, int id) {
+			
+			categoryService.updateCategory(c, id);
+		}
+		
+	public void deleteById(int id) {
+		
+		categoryRepository.deleteById(id);
+	}
+	
+	public List<Category> getAllCategory(){
+		
+		return categoryRepository.findAll();
+	}
+	
+	public Category findById(int id) {
+		
+		return categoryRepository.findById(id).get();
+	}
+}

@@ -1,0 +1,18 @@
+package com.machinetest.Service;
+
+import org.springframework.stereotype.Service;
+
+import com.machinetest.Entities.Product;
+
+@Service
+public class ProductService {
+	
+	public Product addproduct(Product p) {
+		
+		Product product = new Product();
+		product.setPname(null);
+		
+		
+	}
+
+}

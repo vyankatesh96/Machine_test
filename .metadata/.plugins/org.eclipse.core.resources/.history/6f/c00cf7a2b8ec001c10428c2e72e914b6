@@ -1,0 +1,28 @@
+package com.machinetest.Controller;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.machinetest.Entities.Product;
+import com.machinetest.Service.ProductService;
+
+@RestController
+public class ProductController {
+
+	private ProductService productService;
+	
+	@PostMapping("/product")
+	public Product addproduct(@RequestBody Product product) {
+		
+		return productService.addproduct(product);
+	}
+	
+	@PutMapping("/product/{id}")
+	public Product updateproduct(@RequestBody Product product,@PathVariable  int id) {
+		
+		return productService.updateproduct(product, id)
+	}
+}
